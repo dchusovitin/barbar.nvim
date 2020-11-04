@@ -78,11 +78,12 @@ command! -bang -complete=buffer -nargs=?
 "=================
 " Section: Options
 "=================
+let has_icons = luaeval('pcall(require, "nvim-dev-icons")')
 
 let bufferline = extend({
 \ 'shadow': v:true,
 \ 'animation': v:true,
-\ 'icons': v:true,
+\ 'icons': has_icons,
 \ 'closable': v:true,
 \ 'semantic_letters': v:true,
 \ 'clickable': v:true,
