@@ -15,6 +15,8 @@ local Buffer = require'bufferline.buffer'
 local Layout = require'bufferline.layout'
 local JumpMode = require'bufferline.jump_mode'
 
+local has_icons = pcall(require, 'nvim-web-devicons')
+
 local HL_BY_ACTIVITY = {
   [0] = 'Inactive',
   [1] = 'Visible',
@@ -55,7 +57,7 @@ local function render()
   local icons = vim.g.icons
 
   local click_enabled = vim.fn.has('tablineat') and opts.clickable
-  local has_icons = opts.icons
+  local has_icons = opts.icons and has_icons
   local has_close = opts.closable
 
   local layout = Layout.calculate(state)
